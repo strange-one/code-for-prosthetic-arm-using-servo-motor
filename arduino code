@@ -1,0 +1,246 @@
+//add the servo library
+#include<Servo.h>
+
+//define our servos
+Servo s1;
+Servo s2;
+Servo s3;
+Servo s4;
+Servo s5;
+
+//define nature of input
+
+/* inputs to give
+  a-> to move all fingers
+  b-> to move thumb
+  c-> to omve index finger
+  d-> to move middle finger
+  e-> to move ring finger
+  f-> to move little finger
+  g-> to move thumb & index
+  h-> to  move index & middle
+  i-> to move middle & ring
+  j-> to move ring and little
+  k-> to move thumb & little
+  l-> to move index and ring 
+*/
+  
+char input;
+//servo positions in degree
+int i = 0;
+
+void setup()
+{
+  //define servo signal inputs
+  Serial.begin(9600);
+  s1.attach(2);
+  s2.attach(3);
+  s3.attach(4);
+  s4.attach(5);
+  s5.attach(6);
+}
+
+void loop()
+{
+  if(Serial.available()>0)
+  input = Serial.read();
+
+   //for input a; for moving all the fingers
+  if(input == 'a')
+  {
+    for(int i=0; i<180; i++)
+    {
+      s1.write(i);
+      s2.write(i);
+      s3.write(i);
+      s4.write(i);
+      s5.write(i);
+      delay(10);
+    }
+    delay(2000);
+
+    for(int i=180; i>0; i--)
+    {
+      s1.write(i);
+      s2.write(i);
+      s3.write(i);
+      s4.write(i);
+      s5.write(i);
+      delay(10);
+    }
+  }
+
+  if(input == 'b')
+  {
+    for(int i=0; i<180; i++)
+    {
+      s1.write(i);
+      delay(10);
+    }
+    delay(2000);
+
+    for(int i=180; i>0; i--)
+    {
+      s1.write(i);
+      delay(10);
+    }
+  }
+
+  if(input == 'c')
+  {
+    for(int i=0; i<180; i++)
+    {
+      s2.write(i);
+      delay(10);
+    }
+    delay(2000);
+
+    for(int i=180; i>0; i--)
+    {
+      s2.write(i);
+      delay(10);
+    }
+  }
+
+  if(input == 'd')
+  {
+    for(int i=0; i<180; i++)
+    {
+      s3.write(i);
+      delay(10);
+    }
+    delay(2000);
+
+    for(int i=180; i>0; i--)
+    {
+      s3.write(i);
+      delay(10);
+    }
+  }
+
+  if(input == 'e')
+  {
+    for(int i=0; i<180; i++)
+    {
+      s4.write(i);
+      delay(10);
+    }
+    delay(2000);
+
+    for(int i=180; i>0; i--)
+    {
+      s4.write(i);
+      delay(10);
+    }
+  }
+
+  if(input == 'f')
+  {
+    for(int i=0; i<180; i++)
+    {
+      s5.write(i);
+      delay(10);
+    }
+    delay(2000);
+
+    for(int i=180; i>0; i--)
+    {
+      s5.write(i);
+      delay(10);
+    }
+  }
+
+  if(input == 'g')
+  {
+    for(int i=0; i<180; i++)
+    {
+      s1.write(i);
+      s2.write(i);
+      delay(10);
+    }
+    delay(2000);
+
+    for(int i=180; i>0; i--)
+    {
+      s1.write(i);
+      s2.write(i);
+      delay(10);
+    }
+  } 
+
+  if(input == 'h')
+  {
+    for(int i=0; i<180; i++)
+    {
+      s2.write(i);
+      s3.write(i);
+      delay(10);
+    }
+    delay(2000);
+
+    for(int i=180; i>0; i--)
+    {
+      s2.write(i);
+      s3.write(i);
+      delay(10);
+    }
+  }
+
+  if(input == 'i')
+  {
+    for(int i=0; i<180; i++)
+    {
+      s3.write(i);
+      s4.write(i);
+      delay(10);
+    }
+    delay(2000);
+
+    for(int i=180; i>0; i--)
+    {
+      s3.write(i);
+      s4.write(i);
+      delay(10);
+    }
+  }
+
+  if(input == 'j')
+  {
+    for(int i=0; i<180; i++)
+    {
+      s4.write(i);
+      s5.write(i);
+      delay(10);
+    }
+    delay(2000);
+
+    for(int i=180; i>0; i--)
+    {
+      s4.write(i);
+      s5.write(i);
+      delay(10);
+    }
+  }
+
+  if(input == 'k') 
+  {
+    for(int i=0; i<180; i++)
+    {
+      s1.write(i);
+      s2.write(i);
+      s4.write(i);
+      s5.write(i);
+      delay(10);
+    }
+    delay(2000);
+
+    for(int i=180; i>0; i--)
+    {
+      s1.write(i);
+      s2.write(i);
+      s4.write(i);
+      s5.write(i);
+      delay(10);
+    }
+  }    
+}
